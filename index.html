@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meio Ambiente - Consciência Sustentável</title>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8f5e9 100%);
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            background: #1b5e20;
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background: #4caf50;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        nav a.active {
+            background: #66bb6a;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .content-card h2 {
+            color: #2e7d32;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .image-container {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            margin: 2rem auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .text-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #34495e;
+            text-align: justify;
+        }
+
+        .text-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .text-content h3 {
+            color: #2e7d32;
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem 0;
+            font-weight: 600;
+        }
+
+        .text-content ul {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .text-content li {
+            margin-bottom: 0.8rem;
+            padding-left: 0.5rem;
+        }
+
+        .text-content strong {
+            color: #1b5e20;
+            font-weight: 600;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-left: 4px solid #2e7d32;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+        }
+
+        .icon-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .icon-header svg {
+            width: 48px;
+            height: 48px;
+            color: #2e7d32;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-title svg {
+            width: 32px;
+            height: 32px;
+            color: #2e7d32;
+            flex-shrink: 0;
+        }
+
+        .list-item-icon {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .list-item-icon svg {
+            width: 24px;
+            height: 24px;
+            color: #4caf50;
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+
+        .info-card {
+            background: #f1f8f4;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .info-card svg {
+            width: 32px;
+            height: 32px;
+            color: #2e7d32;
+            flex-shrink: 0;
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-content svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .content-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .content-card h2 {
+                font-size: 2rem;
+            }
+
+            .image-container {
+                height: 250px;
+            }
+
+            .text-content {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><i data-lucide="leaf"></i> CONSCIÊNCIA SUSTENTÁVEL</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#desmatamento" class="nav-link active" onclick="showPage('desmatamento')">
+                <i data-lucide="trees"></i> Desmatamento
+            </a></li>
+            <li><a href="#poluicao" class="nav-link" onclick="showPage('poluicao')">
+                <i data-lucide="factory"></i> Poluição
+            </a></li>
+            <li><a href="#biodiversidade" class="nav-link" onclick="showPage('biodiversidade')">
+                <i data-lucide="bug"></i> Biodiversidade
+            </a></li>
+            <li><a href="#educacao" class="nav-link" onclick="showPage('educacao')">
+                <i data-lucide="graduation-cap"></i> Educação Ambiental
+            </a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- PÁGINA 1: DESMATAMENTO -->
+        <div id="desmatamento" class="page active">
+            <div class="content-card">
+                <div class="icon-header">
+                    <i data-lucide="axe"></i>
+                    <h2>Desmatamento</h2>
+                </div>
+                
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=800&h=400&fit=crop" alt="Desmatamento">
+                </div>
+
+                <div class="text-content">
+                    <div class="info-card">
+                        <i data-lucide="alert-triangle"></i>
+                        <p>O desmatamento é a retirada da vegetação nativa de uma área, geralmente para abrir espaço para plantações, criação de gado ou construções.</p>
+                    </div>
+                    
+                    <p>Esse processo traz sérias consequências para o meio ambiente, como a perda da biodiversidade, o aquecimento global e o desequilíbrio climático.</p>
+                    
+                    <div class="highlight-box">
+                        <div class="section-title">
+                            <i data-lucide="lightbulb"></i>
+                            <h3 style="margin: 0;">Você sabia?</h3>
+                        </div>
+                        <p>As árvores têm um papel fundamental na absorção do gás carbônico (CO₂), ajudando a controlar a temperatura do planeta. Quando são derrubadas, esse gás fica acumulado na atmosfera, intensificando o efeito estufa.</p>
+                    </div>
+                    
+                    <div class="list-item-icon">
+                        <i data-lucide="cloud-rain"></i>
+                        <p>Além disso, o desmatamento prejudica o solo, causa erosões e ameaça a vida de animais e plantas que dependem da floresta para sobreviver.</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <i data-lucide="shield-check"></i>
+                        <p><strong>Proteger as florestas é essencial para garantir um futuro sustentável e um planeta saudável.</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PÁGINA 2: POLUIÇÃO -->
+        <div id="poluicao" class="page">
+            <div class="content-card">
+                <div class="icon-header">
+                    <i data-lucide="cloud-fog"></i>
+                    <h2>Poluição</h2>
+                </div>
+                
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1530587191325-3db32d826c18?w=800&h=400&fit=crop" alt="Poluição">
+                </div>
+
+                <div class="text-content">
+                    <div class="section-title">
+                        <i data-lucide="info"></i>
+                        <h3 style="margin: 0;">O que é:</h3>
+                    </div>
+                    <p>A poluição ambiental acontece quando o ser humano joga no meio ambiente substâncias ou resíduos que prejudicam a natureza, os animais e as pessoas. Ela altera o equilíbrio da Terra e afeta o ar, a água e o solo.</p>
+                    
+                    <div class="section-title">
+                        <i data-lucide="layers"></i>
+                        <h3 style="margin: 0;">Principais tipos de poluição ambiental:</h3>
+                    </div>
+                    
+                    <div class="list-item-icon">
+                        <i data-lucide="wind"></i>
+                        <p><strong>Poluição do ar:</strong> causada por fumaça de fábricas, carros e queimadas. Ela contribui para o aquecimento global e causa problemas respiratórios.</p>
+                    </div>
+                    
+                    <div class="list-item-icon">
+                        <i data-lucide="droplets"></i>
+                        <p><strong>Poluição da água:</strong> acontece quando esgoto e lixo são jogados em rios, lagos e oceanos, matando peixes e contaminando a água potável.</p>
+                    </div>
+                    
+                    <div class="list-item-icon">
+                        <i data-lucide="mountain"></i>
+                        <p><strong>Poluição do solo:</strong> ocorre pelo descarte incorreto do lixo e uso de produtos químicos, como agrotóxicos, que prejudicam as plantas e o cultivo de alimentos.</p>
+                    </div>
+
+                    <div class="highlight-box">
+                        <div class="section-title">
+                            <i data-lucide="alert-circle"></i>
+                            <h3 style="margin: 0;">Impacto global</h3>
+                        </div>
+                        <p>A poluição afeta diretamente a saúde humana, causando milhões de mortes prematuras todos os anos em todo o mundo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PÁGINA 3: PERDA DA BIODIVERSIDADE -->
+        <div id="biodiversidade" class="page">
+            <div class="content-card">
+                <div class="icon-header">
+                    <i data-lucide="heart"></i>
+                    <h2>Perda da Biodiversidade</h2>
+                </div>
+                
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?w=800&h=400&fit=crop" alt="Biodiversidade">
+                </div>
+
+                <div class="text-content">
+                    <div class="section-title">
+                        <i data-lucide="help-circle"></i>
+                        <h3 style="margin: 0;">O que é?</h3>
+                    </div>
+                    <p>A biodiversidade é a variedade de todas as formas de vida do planeta — plantas, animais, microrganismos e ecossistemas.</p>
+                    
+                    <p>A perda da biodiversidade acontece quando espécies desaparecem ou seus habitats são destruídos, prejudicando o equilíbrio da natureza.</p>
+                    
+                    <div class="section-title">
+                        <i data-lucide="alert-octagon"></i>
+                        <h3 style="margin: 0;">Principais causas:</h3>
+                    </div>
+                    
+                    <div class="list-item-icon">
+                        <i data-lucide="scissors"></i>
+                        <p>Desmatamento e destruição de habitats</p>
+                    </div>
+                    
+                    <div class="list-item-icon">
+                        <i data-lucide="zap"></i>
+                        <p>Poluição</p>
+                    </div>
+                    
+                    <div class="list-item-icon">
+                        <i data-lucide="crosshair"></i>
+                        <p>Caça e pesca excessiva</p>
+                    </div>
+                    
+                    <div class="list-item-icon">
+                        <i data-lucide="import"></i>
+                        <p>Espécies invasoras</p>
+                    </div>
+                    
+                    <div class="list-item-icon">
+                        <i data-lucide="thermometer"></i>
+                        <p>Mudanças climáticas</p>
+                    </div>
+                    
+                    <div class="section-title">
+                        <i data-lucide="trending-down"></i>
+                        <h3 style="margin: 0;">Consequências:</h3>
+                    </div>
+                    
+                    <div class="list-item-icon">
+                        <i data-lucide="skull"></i>
+                        <p><strong>Extinção de espécies:</strong> milhares de animais já desapareceram e milhões estão ameaçados (como tigres, elefantes, tartarugas marinhas e abelhas).</p>
+                    </div>
+                    
+                    <div class="list-item-icon">
+                        <i data-lucide="scale"></i>
+                        <p><strong>Desequilíbrio ecológico:</strong> a falta de predadores, polinizadores ou presas afeta toda a cadeia alimentar.</p>
+                    </div>
+                    
+                    <div class="list-item-icon">
+                        <i data-lucide="users"></i>
+                        <p><strong>Impactos humanos:</strong> a perda de animais afeta a produção de alimentos, o controle de pragas e até o clima.</p>
+                    </div>
+                    
+                    <div class="highlight-box">
+                        <div class="section-title">
+                            <i data-lucide="check-circle"></i>
+                            <h3 style="margin: 0;">O que pode ser feito?</h3>
+                        </div>
+                        
+                        <div class="list-item-icon">
+                            <i data-lucide="shield"></i>
+                            <p>Proteger florestas, oceanos e áreas naturais</p>
+                        </div>
+                        
+                        <div class="list-item-icon">
+                            <i data-lucide="ban"></i>
+                            <p>Combater o tráfico e a caça ilegal de animais</p>
+                        </div>
+                        
+                        <div class="list-item-icon">
+                            <i data-lucide="recycle"></i>
+                            <p>Reduzir poluição e consumo de produtos que causam desmatamento</p>
+                        </div>
+                        
+                        <div class="list-item-icon">
+                            <i data-lucide="sprout"></i>
+                            <p>Apoiar projetos de conservação e reintrodução de espécies</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PÁGINA 4: EDUCAÇÃO AMBIENTAL -->
+        <div id="educacao" class="page">
+            <div class="content-card">
+                <div class="icon-header">
+                    <i data-lucide="book-open"></i>
+                    <h2>Educação Ambiental</h2>
+                </div>
+                
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&h=400&fit=crop" alt="Educação Ambiental">
+                </div>
+
+                <div class="text-content">
+                    <div class="info-card">
+                        <i data-lucide="lightbulb"></i>
+                        <p>Educação ambiental é um processo que visa construir valores, conhecimentos, habilidades, atitudes e competências para a conservação do meio ambiente, promovendo a qualidade de vida e a sustentabilidade.</p>
+                    </div>
+                    
+                    <p>Ela busca desenvolver uma consciência crítica e responsável, incentivando a ação individual e coletiva para resolver problemas ambientais e construir um futuro mais sustentável.</p>
+                    
+                    <div class="highlight-box">
+                        <div class="section-title">
+                            <i data-lucide="eye"></i>
+                            <h3 style="margin: 0;">Conscientização</h3>
+                        </div>
+                        <p>Desenvolve a compreensão das inter-relações entre a sociedade, a cultura e o meio ambiente biofísico, tornando as pessoas conscientes dos impactos de suas ações.</p>
+                    </div>
+                    
+                    <div class="section-title">
+                        <i data-lucide="target"></i>
+                        <h3 style="margin: 0;">Como é aplicada:</h3>
+                    </div>
+                    
+                    <div class="list-item-icon">
+                        <i data-lucide="school"></i>
+                        <div>
+                            <p><strong>Na escola:</strong> Integra o tema de forma transversal em todas as disciplinas, desde a educação infantil até o ensino superior.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="list-item-icon">
+                        <i data-lucide="megaphone"></i>
+                        <div>
+                            <p><strong>Fora da escola:</strong> Pode ser realizada por meio de palestras, campanhas de conscientização, divulgação de práticas sustentáveis, formação de grupos de discussão e projetos socioambientais.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="list-item-icon">
+                        <i data-lucide="briefcase"></i>
+                        <div>
+                            <p><strong>No meio empresarial:</strong> Contribui para a adoção de critérios ambientais, gestão de resíduos, logística reversa e reciclagem.</p>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <div class="section-title">
+                            <i data-lucide="star"></i>
+                            <h3 style="margin: 0;">Lembre-se</h3>
+                        </div>
+                        <p>A educação ambiental é a chave para transformar nossa relação com o planeta e garantir um futuro sustentável para as próximas gerações!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <i data-lucide="globe"></i>
+            <p>&copy; 2025 Consciência Sustentável | Juntos por um planeta melhor</p>
+        </div>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            // Esconde todas as páginas
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Remove active de todos os links
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => link.classList.remove('active'));
+            
+            // Mostra a página selecionada
+            document.getElementById(pageId).classList.add('active');
+            
+            // Adiciona active no link clicado
+            event.target.closest('.nav-link').classList.add('active');
+            
+            // Scroll suave para o topo
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Reinicializa os ícones Lucide
+            lucide.createIcons();
+        }
+
+        // Inicializa os ícones Lucide quando a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
